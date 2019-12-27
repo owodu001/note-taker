@@ -2,8 +2,12 @@ const express = require('express');
 // https://teamtreehouse.com/community/difference-between-expressrouter-and-express-variables
 const router = express.Router();
 const fs = require("fs");
+const path = require('path');
 
-const dbPath = "C:\\Users\\miche\\homework\\note-taker\\public\\assets\\db.json";
+
+const dbPath = path.join(__dirname, "../public/assets/db.json");
+
+
 
 
 /* GET home page. */
@@ -14,7 +18,11 @@ router.get('/', function(req, res, next) {
 /* GET notes.html. */
 router.get('/notes', function(req, res, next) {
     // for the user
-    res.sendFile("C:\\Users\\miche\\homework\\note-taker\\public\\notes.html");
+
+
+    res.sendFile(path.join(__dirname, "../public/notes.html"));
+
+
     // res.render('index', { title: 'Express' });
 });
 
@@ -62,7 +70,8 @@ router.post('/api/notes', function(req, res, next) {
 });
 
 router.get('/*', function(req, res, next) {
-    res.sendFile("C:\\Users\\miche\\homework\\note-taker\\public\\index.html");
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+
 });
 
 // returns the object that we then give to send
