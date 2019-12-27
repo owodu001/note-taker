@@ -1,4 +1,5 @@
 const express = require('express');
+// https://teamtreehouse.com/community/difference-between-expressrouter-and-express-variables
 const router = express.Router();
 const fs = require("fs");
 
